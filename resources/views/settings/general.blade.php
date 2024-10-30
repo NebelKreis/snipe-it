@@ -314,6 +314,22 @@
                            </div>
                        </div>
 
+                       <!-- Enable cumulative counting for assets in locations -->
+                       <div class="form-group {{ $errors->has('cumulative_asset_counting') ? 'error' : '' }}">
+                           <div class="col-md-3">
+                               {{ Form::label('cumulative_asset_counting',
+                                              trans('admin/settings/general.cumulative_asset_counting')) }}
+                           </div>
+                           <div class="col-md-9">
+                               <label class="form-control">
+                               {{ Form::checkbox('cumulative_asset_counting', '1', old('cumulative_asset_counting', $setting->cumulative_asset_counting),array('class' => 'minimal')) }}
+                               {{ trans('general.yes') }}
+                               </label>
+                               <p class="help-block">{{ trans('admin/settings/general.cumulative_asset_counting_help') }}</p>
+                               {!! $errors->first('cumulative_asset_counting', '<span class="alert-msg">:message</span>') !!}
+                           </div>
+                       </div>
+
                        <!-- Model List prefs -->
                        <div class="form-group {{ $errors->has('show_in_model_list') ? 'error' : '' }}">
                            <div class="col-md-3">
